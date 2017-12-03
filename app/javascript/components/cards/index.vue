@@ -6,13 +6,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-4" v-for="user of users">{{ user.name || `No Name (ID: ${user.id})` }}</div>
+      <div class="col-4" v-for="user of users">
+        <user-thumbnail :user="user" />
+      </div>
     </div>
   </main>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import UserThumbnail from './user-thumbnail';
 
 export default {
   computed: {
@@ -20,6 +23,9 @@ export default {
   },
   methods: {
     ...mapActions(['getUsers']),
+  },
+  components: {
+    UserThumbnail,
   },
   created() {
     this.getUsers();
@@ -32,5 +38,8 @@ export default {
     margin: 10px 0px;
     font-size: 20px;
     text-align: center;
+  }
+  .name {
+    height: 1.5em;
   }
 </style>  
