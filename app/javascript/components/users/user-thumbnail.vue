@@ -2,10 +2,10 @@
   <div class="user-thumbnail">
     <div class="name">{{ user.name || `No Name (ID: ${user.id})` }}</div>
     <div class="photo">
-      <img :src="`https://graph.facebook.com/${user.uid}/picture?width=300&height=300`" width="100%" />
+      <img :src="user.photo" width="100%" />
     </div>
     <div class="btn-area">
-      <a href class="btn-profile">Profile</a>
+      <router-link :to="`users/${user.id}`" class="btn-profile">Profile</router-link>
       <div class="btn-contact">Contact</div>
     </div>
   </div>

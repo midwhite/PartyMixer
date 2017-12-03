@@ -5,6 +5,7 @@ class User < ApplicationRecord
     {
       id: self.id,
       name: self.name,
+      photo: "https://graph.facebook.com/#{self.uid}/picture?width=300&height=300",
       uid: self.uid,
       age: self.age,
       gender: self.gender,
