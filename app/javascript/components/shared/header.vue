@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div id="logo">PartyMixer</div>
+    <router-link to="/" id="logo">PartyMixer</router-link>
   </header>
 </template>
 
@@ -20,5 +20,6 @@
     color: #FFF;
     font-size: 20px;
     line-height: 50px;
+    text-decoration: none;
   }
 </style>

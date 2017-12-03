@@ -10,13 +10,13 @@ class User < ApplicationRecord
       age: self.age,
       gender: self.gender,
       area: self.area,
+      major: self.major,
       industry: self.industry,
       job: self.job,
       university: self.university,
       interests: self.interests,
       blog_url: self.blog_url,
-      profile: self.profile,
-      presence: self.presence
+      profile: self.profile
     }
   end
 

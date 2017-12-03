@@ -1,8 +1,10 @@
 <template>
   <div class="user-thumbnail">
     <div class="name">{{ user.name || `No Name (ID: ${user.id})` }}</div>
-    <div class="photo">
-      <img :src="user.photo" width="100%" />
+    <div class="photo-area">
+      <router-link :to="`users/${user.id}`">
+        <img :src="user.photo" class="photo" />
+      </router-link>
     </div>
     <div class="btn-area">
       <router-link :to="`users/${user.id}`" class="btn-profile">Profile</router-link>
@@ -25,6 +27,10 @@ export default {
   .name {
     height: 1.5em;
   }
+  .photo {
+    width: 100%;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+  }
   .btn-area {
     margin: 4px 0px;
     border: 1px solid #212121;
@@ -44,5 +50,5 @@ export default {
     background: #212121;
     color: #FFF;
   }
-</style>  
+</style>
 
