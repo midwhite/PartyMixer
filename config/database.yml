@@ -1,0 +1,21 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: localhost
+
+development:
+  <<: *default
+  database: party_mixer_dev
+
+test:
+  <<: *default
+  database: party_mixer_test
+
+production:
+  <<: *default
+  database: party_mixer_production
+  username: party_mixer
+  password: <%= ENV['PARTY_MIXER_TEMPLATE_DATABASE_PASSWORD'] %>
