@@ -21,6 +21,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
+gem 'activerecord-import'
 gem 'dotenv-rails'
 
 group :development, :test do

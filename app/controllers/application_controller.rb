@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Constants
   protect_from_forgery with: :exception
 
   # 例外処理
