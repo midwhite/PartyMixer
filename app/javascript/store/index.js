@@ -4,6 +4,7 @@ import mutations from './mutation-types';
 const state = {
   signedIn: false,
   currentUser: { interests: [] },
+  users: [],
 };
 
 const getters = {};

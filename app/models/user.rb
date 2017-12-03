@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   def response
     {
+      id: self.id,
       name: self.name,
       uid: self.uid,
       age: self.age,
