@@ -3,5 +3,13 @@ Rails.application.routes.draw do
 
   root to: 'homes#welcome'
 
+  namespace :api do
+    resources :users do
+      collection do
+        get  'me'
+      end
+    end
+  end
+
   get '*path', to: 'homes#welcome'
 end

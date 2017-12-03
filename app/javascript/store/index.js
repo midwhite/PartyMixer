@@ -1,13 +1,16 @@
 import actions from './action-types';
 import mutations from './mutation-types';
 
-const state = {};
+const state = {
+  signedIn: false,
+  currentUser: { interests: [] },
+};
 
 const getters = {};
 
-export default {
+export default store => new store({
   state,
   getters,
   actions,
   mutations,
-};
+});
