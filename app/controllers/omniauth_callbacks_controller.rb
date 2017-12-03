@@ -5,7 +5,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth = request.env['omniauth.auth']
     user = User.where(uid: auth.uid).first_or_initialize
 
-    if user.new_record?
+    if user.new_record? && auth.info.present?
       user.name = auth.info.name
       user.email = auth.info.email
     end
