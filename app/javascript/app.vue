@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="container-fluid">
     <header-component />
-    <router-view />
+    <div id="container">
+      <router-view />
+    </div>
     <footer-component />
   </div>
 </template>
@@ -19,4 +21,7 @@ export default {
 </script>
 
 <style scoped>
+  #container {
+    margin-top: 50px;
+  }
 </style>

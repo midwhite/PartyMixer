@@ -5,4 +5,15 @@ const routes = [{
   path: '/', component: WelcomePage,
 }];
 
-export default new VueRouter({ routes });
+const router = new VueRouter({ routes });
+
+router.beforeEach((to, from, next) => {
+  const extraStr = "_=_";
+  if (to.path.indexOf(extraStr) === -1) {
+    next();
+  } else {
+    next("/");
+  }
+});
+
+export default router;
