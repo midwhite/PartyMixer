@@ -14,21 +14,15 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 import UserThumbnail from './user-thumbnail';
 
 export default {
   computed: {
     ...mapState(['users']),
   },
-  methods: {
-    ...mapActions(['getUsers']),
-  },
   components: {
     UserThumbnail,
-  },
-  created() {
-    this.getUsers();
   },
 }
 </script>
@@ -42,4 +36,4 @@ export default {
   .name {
     height: 1.5em;
   }
-</style>  
+</style>

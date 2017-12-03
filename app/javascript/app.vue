@@ -20,7 +20,7 @@ export default {
     ...mapState(['signedIn']),
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['login', 'getUsers']),
   },
   components: {
     HeaderComponent,
@@ -28,7 +28,9 @@ export default {
     WelcomePage,
   },
   created() {
-    this.login();
+    this.login().then(response => {
+      this.getUsers();
+    });
   },
 }
 </script>

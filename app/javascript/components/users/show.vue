@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 import UserDetail from './user-detail';
 
 export default {
@@ -32,7 +32,6 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['getUsers']),
     getNextUser() {
       if (this.nextUser) {
         this.$router.push(`/users/${this.nextUser.id}`);
@@ -52,11 +51,6 @@ export default {
   components: {
     UserDetail,
   },
-  created() {
-    if (this.users.length === 0) {
-      this.getUsers();
-    }
-  }
 }
 </script>
 
