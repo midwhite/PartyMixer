@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router';
-import WelcomePage from './components/shared/welcome';
+import CardsPage from './components/cards';
 
 const routes = [{
-  path: '/', component: WelcomePage,
+  path: '/', component: CardsPage,
 }];
 
 export default new VueRouter({ routes });

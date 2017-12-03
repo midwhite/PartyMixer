@@ -1,7 +1,7 @@
 const mutations = {
   login(state, data) {
-    state.signedIn = true;
-    state.currentUser = data.user;
+    state.signedIn = !!data.user;
+    state.currentUser = data.user || {};
   },
 };
 
