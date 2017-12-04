@@ -26,7 +26,7 @@ export default {
     props() {
       return {
         age: "年齢",
-        area: "エリア",
+        area: "出身",
         major: "専攻",
         industry: "業種",
         job: "職種",

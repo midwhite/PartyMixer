@@ -1,6 +1,9 @@
 <template>
   <header>
-    <router-link to="/" id="logo">PartyMixer</router-link>
+    <router-link to="/" id="logo">Group Maker</router-link>
+    <router-link to="/users/edit" class="icon-link">
+      <img :src="require('../../assets/images/icons/settings.png')" class="icon-settings" />
+    </router-link>
   </header>
 </template>
 
@@ -16,10 +19,24 @@
     z-index: 1;
   }
   #logo {
-    margin: 0px 15px;
+    padding: 13px 15px;
     color: #FFF;
     font-size: 20px;
     line-height: 50px;
     text-decoration: none;
+  }
+  .icon-link {
+    width: 50px;
+    padding: 5px;
+    float: right;
+    text-align: right;
+    transition: background-color .3s 0s ease;
+  }
+  .icon-link:hover {
+    background: #444;
+  }
+  .icon-settings {
+    width: 40px;
+    cursor: pointer;
   }
 </style>

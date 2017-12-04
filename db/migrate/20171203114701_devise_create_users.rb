@@ -35,17 +35,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string  :name
       t.date    :birthday
       t.integer :gender
-      t.string  :area
-      t.string  :industry
-      t.string  :job
-      t.string  :university
-      t.string  :major
-      t.string  :interest_str
-      t.string  :twitter_id
-      t.string  :line_id
-      t.string  :blog_url
+      t.string  :area, default: ""
+      t.string  :industry, default: ""
+      t.string  :job, default: ""
+      t.string  :university, default: ""
+      t.string  :major, default: ""
+      t.string  :interest_str, default: ""
+      t.string  :twitter_id, default: ""
+      t.string  :line_id, default: ""
+      t.string  :blog_url, default: ""
       t.text    :profile
-      t.boolean :presense
 
       t.timestamps null: false
     end

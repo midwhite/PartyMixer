@@ -23,6 +23,7 @@ class User < ApplicationRecord
   def detail
     self.response.merge(
       email: self.email,
+      birthday: self.birthday,
       twitter_id: self.twitter_id,
       line_id: self.line_id
     )

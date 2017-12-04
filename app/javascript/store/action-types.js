@@ -11,4 +11,8 @@ export default {
       commit('setUsers', data);
     });
   },
+  updateUser({ commit }, { user }) {
+    commit('setCurrentUser', { user });
+    axios.put(`/api/users/${user.id}`, { user });
+  },
 };
