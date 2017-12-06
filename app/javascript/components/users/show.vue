@@ -6,18 +6,18 @@
     <div class="btn-area">
       <div @click="getPrevUser" class="prev-btn">Prev</div>
       <div @click="getNextUser" class="next-btn">Next</div>
-      <div class="connect-btn" @click="selectUser({ user })">Connect</div>
+      <div class="connect-btn" @click="selectUser({ user })">{{userIsSelected ? 'Remove' : 'Connect'}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 import UserDetail from './user-detail';
 
 export default {
   computed: {
-    ...mapState(['users']),
+    ...mapState(['users', 'selectedUsers']),
     user() {
       const userId = Number(this.$route.params.id);
       return this.users.find(user => user.id === userId);
@@ -30,9 +30,11 @@ export default {
       const currentIndex = this.users.findIndex(user => user.id === this.user.id);
       return this.users[currentIndex - 1];
     },
+    userIsSelected() {
+      return this.selectedUsers && this.selectedUsers.some(user => user.id === this.user.id)
+    },
   },
   methods: {
-    ...mapActions(['selectUser']),
     getNextUser() {
       if (this.nextUser) {
         this.$router.push(`/users/${this.nextUser.id}`);
@@ -47,6 +49,10 @@ export default {
         const lastUser = this.users[this.users.length - 1];
         this.$router.push(`/users/${lastUser.id}`);
       }
+    },
+    selectUser() {
+      this.$store.dispatch('selectUser', { user: this.user });
+      this.$router.push('/');
     },
   },
   components: {

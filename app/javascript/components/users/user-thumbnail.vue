@@ -1,5 +1,5 @@
 <template>
-  <div class="user-thumbnail">
+  <div :class="userIsSelected ? 'user-thumbnail selected' : 'user-thumbnail'">
     <div class="name">{{ user.name || `No Name (ID: ${user.id})` }}</div>
     <div class="photo-area">
       <router-link :to="`users/${user.id}`">
@@ -8,16 +8,22 @@
     </div>
     <div class="btn-area">
       <router-link :to="`users/${user.id}`" class="btn-profile">Profile</router-link>
-      <div class="btn-connect" @click="selectUser({ user })">Connect</div>
+      <div :class="userIsSelected ? 'btn-remove' : 'btn-connect'" @click="selectUser({ user })">{{userIsSelected ? 'Remove' : 'Connect'}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   props: ['user'],
+  computed: {
+    ...mapState(['selectedUsers']),
+    userIsSelected() {
+      return this.selectedUsers && this.selectedUsers.some(user => user.id === this.user.id)
+    },
+  },
   methods: {
     ...mapActions(['selectUser']),
   },
@@ -27,7 +33,10 @@ export default {
 <style scoped>
   .user-thumbnail {
     margin: 0px -15px;
-    padding: 0px 5px;
+    padding: 5px;
+  }
+  .user-thumbnail.selected {
+    background: #FF80AB;
   }
   .name {
     height: 1.5em;
@@ -52,6 +61,12 @@ export default {
     margin-left: 50%;
     padding: 2px 0px;
     background: #F50057;
+    color: #FFF;
+  }
+  .btn-remove {
+    margin-left: 50%;
+    padding: 2px 0px;
+    background: #212121;
     color: #FFF;
   }
 </style>

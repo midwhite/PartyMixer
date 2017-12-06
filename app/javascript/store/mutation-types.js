@@ -10,8 +10,11 @@ export default {
     state.users = data.users;
   },
   selectUser(state, data) {
-    if (!state.selectedUsers.some(user => user.id === data.user.id)) {
+    const index = state.selectedUsers.findIndex(user => user.id === data.user.id);
+    if (index === -1) {
       state.selectedUsers.push(data.user);
+    } else {
+      state.selectedUsers.splice(index, 1);
     }
   }
 };
