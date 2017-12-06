@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users do
       collection do
         get  'me'
+        resources :relations
       end
     end
   end

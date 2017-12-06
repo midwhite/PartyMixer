@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   devise :rememberable, :trackable, :omniauthable, omniauth_providers: [:facebook]
 
+  has_many :relations
+
   def response
     {
       id: self.id,

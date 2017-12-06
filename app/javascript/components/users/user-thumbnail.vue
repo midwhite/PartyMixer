@@ -8,14 +8,19 @@
     </div>
     <div class="btn-area">
       <router-link :to="`users/${user.id}`" class="btn-profile">Profile</router-link>
-      <div class="btn-contact">Contact</div>
+      <div class="btn-connect" @click="selectUser({ user })">Connect</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   props: ['user'],
+  methods: {
+    ...mapActions(['selectUser']),
+  },
 }
 </script>
 
@@ -33,7 +38,6 @@ export default {
   }
   .btn-area {
     margin: 4px 0px;
-    border: 1px solid #212121;
     font-size: 12px;
     text-align: center;
   }
@@ -44,10 +48,10 @@ export default {
     background: #EEE;
     color: #212121;
   }
-  .btn-contact {
+  .btn-connect {
     margin-left: 50%;
     padding: 2px 0px;
-    background: #212121;
+    background: #F50057;
     color: #FFF;
   }
 </style>

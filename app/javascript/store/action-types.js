@@ -1,18 +1,24 @@
 import axios from './axios';
+import { CURRENT_EVENT_ID } from '../constants';
 
 export default {
   login({ commit }) {
-    axios.get('/api/users/me').then(data => {
+    return axios.get('/api/users/me').then(data => {
       commit('login', data);
     });
   },
   getUsers({ commit }) {
-    axios.get('/api/users').then(data => {
+    return axios.get('/api/users').then(data => {
       commit('setUsers', data);
     });
   },
   updateUser({ commit }, { user }) {
     commit('setCurrentUser', { user });
-    axios.put(`/api/users/${user.id}`, { user });
+    return axios.put(`/api/users/${user.id}`, { user });
   },
+  selectUser({ commit }, { user }) {
+    return axios.post(`/api/users/relations`, { user_id: user.id, event_id: CURRENT_EVENT_ID }).then(data => {
+      commit('selectUser', { user });
+    });
+  }
 };

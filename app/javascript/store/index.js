@@ -5,6 +5,7 @@ const state = {
   signedIn: false,
   currentUser: { interests: [] },
   users: [],
+  selectedUsers: [],
 };
 
 const getters = {};

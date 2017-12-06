@@ -9,4 +9,9 @@ export default {
   setUsers(state, data) {
     state.users = data.users;
   },
+  selectUser(state, data) {
+    if (!state.selectedUsers.some(user => user.id === data.user.id)) {
+      state.selectedUsers.push(data.user);
+    }
+  }
 };

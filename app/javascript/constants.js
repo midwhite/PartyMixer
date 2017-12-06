@@ -29,3 +29,5 @@ export const JOB_PARAMS = [
   "学生", "営業", "企画", "管理", "総務", "経営",
   "技術", "専門職", "販売", "公務員", "無職"
 ];
+
+export const CURRENT_EVENT_ID = 1;

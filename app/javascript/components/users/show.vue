@@ -6,13 +6,13 @@
     <div class="btn-area">
       <div @click="getPrevUser" class="prev-btn">Prev</div>
       <div @click="getNextUser" class="next-btn">Next</div>
-      <div class="contact-btn">Contact</div>
+      <div class="connect-btn" @click="selectUser({ user })">Connect</div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import UserDetail from './user-detail';
 
 export default {
@@ -32,6 +32,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['selectUser']),
     getNextUser() {
       if (this.nextUser) {
         this.$router.push(`/users/${this.nextUser.id}`);
@@ -58,23 +59,35 @@ export default {
   .btn-area {
     text-align: center;
   }
-  .btn-area > div {
+  .prev-btn, .next-btn, .connect-btn {
+    position: relative;
     padding: 5px 0px;
+    box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+    transition: background-color, .3s 0s ease;
     cursor: pointer;
   }
   .prev-btn {
     width: 100px;
     float: left;
-    background: #EEE;
+    background: #212121;
+    color: #FFF;
   }
   .next-btn {
     width: 100px;
     float: right;
-    background: #EEE;
-  }
-  .contact-btn {
-    margin: 0px 105px;
     background: #212121;
     color: #FFF;
+  }
+  .connect-btn {
+    margin: 0px 105px;
+    background: #F50057;
+    color: #FFF;
+  }
+  .prev-btn:hover, .next-btn:hover {
+    background: #444;
+    color: #FFF;
+  }
+  .connect-btn:hover {
+    background: #FF4081;
   }
 </style>
