@@ -34,6 +34,7 @@ export default {
   .user-thumbnail {
     margin: 0px -15px;
     padding: 5px;
+    transition: background-color .3s 0s ease;
   }
   .user-thumbnail.selected {
     background: #FF80AB;
@@ -70,4 +71,3 @@ export default {
     color: #FFF;
   }
 </style>
-

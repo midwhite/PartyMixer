@@ -16,5 +16,8 @@ export default {
     } else {
       state.selectedUsers.splice(index, 1);
     }
-  }
+  },
+  switchDisplayMode(state, data) {
+    state.displayMode = data.mode;
+  },
 };

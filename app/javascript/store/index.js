@@ -6,6 +6,7 @@ const state = {
   currentUser: { interests: [] },
   users: [],
   selectedUsers: [],
+  displayMode: 1,
 };
 
 const getters = {};
