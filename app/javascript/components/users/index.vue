@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="row" v-if="displayMode === 1">
+      <bingo-user :user="user" v-for="user of users" />
+    </div>
+    <div class="row" v-else>
       <div class="col-4" v-for="user of users">
         <user-thumbnail :user="user" />
       </div>
-    </div>
-    <div class="row" v-else>
-      <div>Display Mode 2</div>
     </div>
     <sticky-box></sticky-box>
   </main>
@@ -20,6 +20,7 @@
 <script>
 import { mapState } from 'vuex';
 import UserThumbnail from './user-thumbnail';
+import BingoUser from './bingo-user';
 import StickyBox from './sticky-box';
 
 export default {
@@ -28,6 +29,7 @@ export default {
   },
   components: {
     UserThumbnail,
+    BingoUser,
     StickyBox,
   },
 }
@@ -38,8 +40,5 @@ export default {
     margin: 10px 0px;
     font-size: 20px;
     text-align: center;
-  }
-  .name {
-    height: 1.5em;
   }
 </style>

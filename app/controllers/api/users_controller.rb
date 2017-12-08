@@ -1,6 +1,6 @@
 class Api::UsersController < ApplicationController
   def index
-    render json: { users: User.order(id: :desc).map(&:response) }
+    render json: { users: User.all.map(&:response).shuffle }
   end
 
   def me
