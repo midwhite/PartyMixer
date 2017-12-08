@@ -2,10 +2,28 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>人間ビンゴ｜忘年会2017</title>
+    <title><%= ogp_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
+
+    <meta name="author" content="midwhite" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="<%= ogp_title %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= ogp_title %>" />
+    <meta property="og:description" content="<%= ogp_description %>" />
+    <meta property="og:url" content="<%= root_url %>" />
+    <meta property="og:image" content="https://cloud-a.org/wanted/static/img/party-bingo-ogp.png" />
+    <meta property="fb:app_id" content="<%= ENV["FACEBOOK_APP_ID"] %>" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@cloudacd" />
+    <meta name="twitter:creator" content="@cloudacd" />
+    <meta name="twitter:title" content="<%= ogp_title %>" />
+    <meta name="twitter:description" content="<%= ogp_description %>" />
+    <meta name="twitter:image:src" content="https://cloud-a.org/wanted/static/img/party-bingo-ogp.png" />
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
