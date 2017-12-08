@@ -15,5 +15,4 @@ test:
   database: party_mixer_test
 
 production:
-  <<: *default
   url: <%= ENV["CLEARDB_DATABASE_URL"] %>
