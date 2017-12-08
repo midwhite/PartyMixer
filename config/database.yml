@@ -16,6 +16,4 @@ test:
 
 production:
   <<: *default
-  database: party_mixer_production
-  username: party_mixer
-  password: <%= ENV['PARTY_MIXER_TEMPLATE_DATABASE_PASSWORD'] %>
+  url: <%= ENV["CLEARDB_DATABASE_URL"] %>
